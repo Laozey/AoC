@@ -44,6 +44,5 @@ def parse_to_int(s):
 with open('d:/Programming/Misc/AdventOfCode/2023/Day 1/input.txt', 'r') as f:
     sum = 0
     for l in f.readlines():
-        c = calibration_value(l)
-        sum += c
+        sum += calibration_value(l)
     print(sum)

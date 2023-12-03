@@ -24,7 +24,7 @@ def find_part_number(lines: str) -> list:
                     gear_ratio += np.prod(parts_number)
     return total_sum, gear_ratio
 
-def convolution(index: tuple, lines: list) -> list:
+def convolution(index: tuple, lines: [[str]]) -> list:
     engine_parts = []
     for c in CONVOLUTION_MATRIX:
         i = index[0] + c[0]
@@ -53,9 +53,6 @@ def extract_number(line: str, mid: int) -> int:
             number += line[i]
     
     return int(number)
-            
-
-    
 
 with open('d:/Programming/Misc/AdventOfCode/2023/Day 3/input.txt', 'r') as f:
     input = np.array(f.readlines())
