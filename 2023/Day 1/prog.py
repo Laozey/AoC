@@ -41,7 +41,7 @@ def parse_to_int(s):
         case _:
             return s
 
-with open('d:/Programming/Misc/AdventOfCode/2023/Day 1/input.txt', 'r') as f:
+with open('./2023/Day 1/input.txt', 'r') as f:
     sum = 0
     for l in f.readlines():
         sum += calibration_value(l)

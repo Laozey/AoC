@@ -35,7 +35,7 @@ def part_two(l: str) -> int:
     
     return np.prod(list(max_found_cubes.values()))
 
-with open('d:/Programming/Misc/AdventOfCode/2023/Day 2/input.txt', 'r') as f:
+with open('./2023/Day 2/input.txt', 'r') as f:
     input = f.readlines()
     print("Part 1: " + str(sum([part_one(l) for l in input])))
     print("Part 2: " + str(sum([part_two(l) for l in input])))

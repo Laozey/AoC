@@ -66,7 +66,7 @@ def extract_number(line: str, mid: int) -> int:
     
     return int(number)
 
-with open('d:/Programming/Misc/AdventOfCode/2023/Day 3/input.txt', 'r') as f:
+with open('./2023/Day 3/input.txt', 'r') as f:
     input = np.array(f.readlines())
     p1, p2 = find_part_number(input)
     print("Part 1: " + str(p1))

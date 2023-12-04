@@ -45,7 +45,7 @@ def compute_cards_count(cards: list) -> int:
     return sum(cards_count)
 
 
-with open('d:/Programming/Misc/AdventOfCode/2023/Day 4/input.txt', 'r') as f:
+with open('./2023/Day 4/input.txt', 'r') as f:
     cards = f.readlines()
     print("Part 1: " + str(compute_cards_score(cards)))
     print("Part 2: " + str(compute_cards_count(cards)))
