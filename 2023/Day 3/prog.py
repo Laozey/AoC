@@ -11,6 +11,18 @@ CONVOLUTION_MATRIX = [
     ( 1, -1), #1
     ( 0, -1), #4
 ]
+TEST_CASE = [
+    "467..114..",
+    "...*......",
+    "..35..633.",
+    "......#...",
+    "617*......",
+    ".....+.58.",
+    "..592.....",
+    "......755.",
+    "...$.*....",
+    ".664.598.."
+]
 
 def find_part_number(lines: str) -> list:
     total_sum = 0
@@ -56,4 +68,6 @@ def extract_number(line: str, mid: int) -> int:
 
 with open('d:/Programming/Misc/AdventOfCode/2023/Day 3/input.txt', 'r') as f:
     input = np.array(f.readlines())
-    print(find_part_number(input))
+    p1, p2 = find_part_number(input)
+    print("Part 1: " + str(p1))
+    print("Part 2: " + str(p2))
