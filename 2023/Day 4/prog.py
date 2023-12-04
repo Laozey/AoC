@@ -30,24 +30,22 @@ def get_winning_match(card: str) -> int:
     
     return w
 
-def compute_card_score(cards: list) -> int:
+def compute_cards_score(cards: list) -> int:
     sum = 0
     for c in cards:
         m = get_winning_match(c)
         sum += 2**(m-1) if m else 0
     return sum
 
-def compute_card_count(cards: list) -> int:
+def compute_cards_count(cards: list) -> int:
     cards_count = np.array([1] * len(cards))
     for i, c in enumerate(cards):
         for m in range(get_winning_match(c)):
             cards_count[i+1+m] += cards_count[i]
-    return cards_count
+    return sum(cards_count)
 
 
 with open('d:/Programming/Misc/AdventOfCode/2023/Day 4/input.txt', 'r') as f:
     cards = f.readlines()
-    # Part one
-    print(compute_card_score(cards))
-    # Part two
-    print(sum(compute_card_count(cards)))
+    print("Part 1: " + str(compute_cards_score(cards)))
+    print("Part 2: " + str(compute_cards_count(cards)))
