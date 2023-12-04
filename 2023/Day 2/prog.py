@@ -16,24 +16,26 @@ MAX_BAG_CONTENT = {
 
 def part_one(l: str) -> int:
     # extract
-    game_id, grabed_cubes = l.split(":")
+    game_id, grabbed_cubes = l.split(":")
 
     # parse
     game_id = int(game_id[4:])
-    grabed_cubes = re.findall(r'(\d* red)|(\d* green)|(\d* blue)', grabed_cubes)
-    grabed_cubes = [tuple(''.join(t).split(" ")) for t in grabed_cubes]
+    grabbed_cubes = parse_grabbed_cubes(grabbed_cubes)
 
-    return 0 if any(int(n) > MAX_BAG_CONTENT[c] for n,c in grabed_cubes) else game_id
+    return 0 if any(int(n) > MAX_BAG_CONTENT[c] for n,c in grabbed_cubes) else game_id
 
-def part_two(l: str) -> int:
-    grabed_cubes = re.findall(r'(\d* red)|(\d* green)|(\d* blue)', l)
-    grabed_cubes = [tuple(''.join(t).split(" ")) for t in grabed_cubes]
+def part_two(grabbed_cubes: str) -> int:
+    grabbed_cubes = parse_grabbed_cubes(grabbed_cubes)
 
     max_found_cubes = {"red": 0, "green": 0, "blue": 0}
-    for n, c in grabed_cubes:
+    for n, c in grabbed_cubes:
         max_found_cubes[c] = max(int(n), max_found_cubes[c])
     
     return np.prod(list(max_found_cubes.values()))
+
+def parse_grabbed_cubes(grabbed_cubes: str) -> list:
+    grabbed_cubes = re.findall(r'(\d* red)|(\d* green)|(\d* blue)', grabbed_cubes)
+    return [tuple(''.join(t).split(" ")) for t in grabbed_cubes]
 
 with open('./2023/Day 2/input.txt', 'r') as f:
     input = f.readlines()

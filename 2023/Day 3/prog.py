@@ -1,16 +1,5 @@
 import numpy as np
 
-SYMBOLS = ['*', '#', '%', '/', '=', '$', '+', '-', '@', '&']
-CONVOLUTION_MATRIX = [
-    (-1, -1), #7
-    (-1,  0), #8
-    (-1,  1), #9
-    ( 0,  1), #6
-    ( 1,  1), #3
-    ( 1,  0), #2
-    ( 1, -1), #1
-    ( 0, -1), #4
-]
 TEST_CASE = [
     "467..114..",
     "...*......",
@@ -23,8 +12,19 @@ TEST_CASE = [
     "...$.*....",
     ".664.598.."
 ]
+SYMBOLS = ['*', '#', '%', '/', '=', '$', '+', '-', '@', '&']
+CONVOLUTION_MATRIX = [
+    (-1, -1), #7
+    (-1,  0), #8
+    (-1,  1), #9
+    ( 0,  1), #6
+    ( 1,  1), #3
+    ( 1,  0), #2
+    ( 1, -1), #1
+    ( 0, -1), #4
+]
 
-def find_part_number(lines: str) -> list:
+def find_part_number(lines: list) -> list:
     total_sum = 0
     gear_ratio = 0
     for i in range(1, len(lines) - 1):
@@ -36,7 +36,7 @@ def find_part_number(lines: str) -> list:
                     gear_ratio += np.prod(parts_number)
     return total_sum, gear_ratio
 
-def convolution(index: tuple, lines: [[str]]) -> list:
+def convolution(index: tuple, lines: list) -> list:
     engine_parts = []
     for c in CONVOLUTION_MATRIX:
         i = index[0] + c[0]
@@ -67,7 +67,7 @@ def extract_number(line: str, mid: int) -> int:
     return int(number)
 
 with open('./2023/Day 3/input.txt', 'r') as f:
-    input = np.array(f.readlines())
+    input = f.readlines()
     p1, p2 = find_part_number(input)
     print("Part 1: " + str(p1))
     print("Part 2: " + str(p2))
