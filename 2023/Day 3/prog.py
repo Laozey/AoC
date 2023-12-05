@@ -68,6 +68,9 @@ def extract_number(line: str, mid: int) -> int:
 
 with open('./2023/Day 3/input.txt', 'r') as f:
     input = f.readlines()
+    t1, t2 = find_part_number(TEST_CASE)
+    assert(t1 == 4361)
+    assert(t2 == 467835)
     p1, p2 = find_part_number(input)
     print("Part 1: " + str(p1))
     print("Part 2: " + str(p2))

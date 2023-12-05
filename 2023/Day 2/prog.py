@@ -39,5 +39,7 @@ def parse_grabbed_cubes(grabbed_cubes: str) -> list:
 
 with open('./2023/Day 2/input.txt', 'r') as f:
     input = f.readlines()
+    assert(sum([part_one(l) for l in TEST_CASE]) == 8)
+    assert(sum([part_two(l) for l in TEST_CASE]) == 2286)
     print("Part 1: " + str(sum([part_one(l) for l in input])))
     print("Part 2: " + str(sum([part_two(l) for l in input])))

@@ -47,5 +47,7 @@ def compute_cards_count(cards: list) -> int:
 
 with open('./2023/Day 4/input.txt', 'r') as f:
     cards = f.readlines()
+    assert(compute_cards_score(TEST_CASE) == 13)
+    assert(compute_cards_count(TEST_CASE) == 30)
     print("Part 1: " + str(compute_cards_score(cards)))
     print("Part 2: " + str(compute_cards_count(cards)))
