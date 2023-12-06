@@ -88,9 +88,9 @@ def intersect_range(a: tuple, b: tuple) -> tuple:
     return intersect, left_over
 
 def map_range(value: int, old_range: tuple, new_range: tuple) -> int:
-    o_range = old_range[1] - old_range[0]
-    n_range = new_range[1] - new_range[0]
-    return ((value - old_range[0]) // o_range) * n_range + new_range[0] 
+    old = old_range[1] - old_range[0]
+    new = new_range[1] - new_range[0]
+    return ((value - old_range[0]) // old) * new + new_range[0] 
 
 def extract_seeds(page: str) -> list[int]:
     return [int(e) for e in page[7:].split(' ')]
@@ -104,6 +104,6 @@ def extract_seeds_range(page: str) -> list[int]:
 with open('./2023/Day 5/input.txt', 'r') as f:
     input = f.read()
     assert(parse_almanac(TEST_CASE) == 35)
-    # assert(parse_almanac_range(TEST_CASE) == 46)
+    assert(parse_almanac_range(TEST_CASE) == 46)
     print("Part 1: " + str(parse_almanac(input)))
     print("Part 2: " + str(parse_almanac_range(input)))
