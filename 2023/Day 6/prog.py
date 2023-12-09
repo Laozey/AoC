@@ -3,7 +3,7 @@ import re
 TEST_CASE = """Time:      7  15   30
 Distance:  9  40  200"""
 
-def ways_beat_count(min_time: int, max_time: int, total_time: int, distance: int):
+def ways_beat_count(min_time: int, max_time: int, total_time: int, distance: int) -> int:
     mid = (max_time + min_time)//2
     d = mid * (total_time - mid)
     if min_time >= max_time:
@@ -14,7 +14,7 @@ def ways_beat_count(min_time: int, max_time: int, total_time: int, distance: int
     else:
         return ways_beat_count(mid + 1, max_time, total_time, distance)
 
-def total_ways_beat(values: list):
+def total_ways_beat(values: list) -> int:
     prod = 1
     nb_race = len(values)//2
     for i in range(nb_race):
@@ -23,15 +23,15 @@ def total_ways_beat(values: list):
         prod *= ways_beat_count(0, time, time, distance)
     return prod
 
-def get_races_data(races_data: str):
+def parse_races(races_data: str) -> list[int]:
     return [int(v) for v in re.findall(r'\d+', races_data)]
 
-def get_race_data(races_data: str):
+def parse_race(races_data: str) -> list[int]:
     return [int(''.join(re.findall(r'\d+', d))) for d in races_data.split("\n")]
 
 with open('./2023/Day 6/input.txt', 'r') as f:
     input = f.read()
-    assert(total_ways_beat(get_races_data(TEST_CASE)) == 288)
-    assert(total_ways_beat(get_race_data(TEST_CASE)) == 71503)
-    print("Part 1: " + str(total_ways_beat(get_races_data(input))))
-    print("Part 2: " + str(total_ways_beat(get_race_data(input))))
+    assert(total_ways_beat(parse_races(TEST_CASE)) == 288)
+    assert(total_ways_beat(parse_race(TEST_CASE)) == 71503)
+    print("Part 1: " + str(total_ways_beat(parse_races(input))))
+    print("Part 2: " + str(total_ways_beat(parse_race(input))))
