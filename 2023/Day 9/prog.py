@@ -9,9 +9,8 @@ def find_history_value(history_line: list[int], backward: bool) -> int:
     extrapolated_history = []
     for i in range(1, len(history_line)):
         extrapolated_history.append(history_line[i] - history_line[i-1])
-    if backward:
-        return history_line[0] - find_history_value(extrapolated_history, backward)
-    return history_line[-1] + find_history_value(extrapolated_history, backward)
+    h_value = find_history_value(extrapolated_history, backward)
+    return history_line[-1] if backward else history_line[0] - h_value
         
 
 def total_report_values(report_lines: list, backward: bool) -> int:
