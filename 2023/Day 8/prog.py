@@ -41,7 +41,7 @@ def lcm_list(steps: list[int]):
 def is_arrived(nodes: list[str], ends: list[str]):
     return all(n in ends for n in nodes)
 
-def get_nb_step(network: tuple) -> int:
+def total_step(network: tuple) -> int:
     sequence = network[0]
     nodes = network[1]
     steps = [0 for _ in nodes]
@@ -80,8 +80,8 @@ def parse_network_all(document: str) -> (str, list, list):
 
 with open('./2023/Day 8/input.txt', 'r') as f:
     input = f.read()
-    assert(get_nb_step(parse_network(TEST_CASE)) == 2)
-    assert(get_nb_step(parse_network(TEST_CASE_2)) == 6)
-    assert(get_nb_step(parse_network_all(TEST_CASE_3)) == 6)
-    print("Part 1: " + str(get_nb_step(parse_network(input))))
-    print("Part 2: " + str(get_nb_step(parse_network_all(input))))
+    assert(total_step(parse_network(TEST_CASE)) == 2)
+    assert(total_step(parse_network(TEST_CASE_2)) == 6)
+    assert(total_step(parse_network_all(TEST_CASE_3)) == 6)
+    print("Part 1: " + str(total_step(parse_network(input))))
+    print("Part 2: " + str(total_step(parse_network_all(input))))
