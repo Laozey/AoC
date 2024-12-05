@@ -30,14 +30,14 @@ def sum_middle_pages(rules: dict, data: list) -> int:
     acc = 0
     reordered_acc = 0
     for pages in data:
-        if is_update_correct(rules, pages):
+        if are_pages_ordered(rules, pages):
             acc += int(pages[len(pages)//2])
         else:
             reordered_pages = reorder_pages(rules, pages)
             reordered_acc += int(reordered_pages[len(reordered_pages)//2])
     return acc, reordered_acc
 
-def is_update_correct(rules: dict, pages: list):
+def are_pages_ordered(rules: dict, pages: list):
     for i, p in enumerate(pages):
         left = pages[:i]
         if any([l in rules[p] for l in left]):
