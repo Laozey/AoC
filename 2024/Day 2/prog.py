@@ -57,7 +57,7 @@ def is_level_safe(diff, sign) -> bool:
 def sign(a):
     return (a > 0) - (a < 0)
 
-with open('input.txt', 'r') as input:
+with open('./2024/Day 2/input.txt', 'r') as input:
     reports = []
     for line in input.readlines():
         reports.append([int(level) for level in line.strip().split(' ')])

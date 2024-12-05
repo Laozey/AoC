@@ -27,7 +27,7 @@ def compute_uncorrupted_instruction_sequence(memory: str):
                     acc += left * right
     return acc
 
-with open('input.txt', 'r') as input:
+with open('./2024/Day 3/input.txt', 'r') as input:
     data = input.read()
     print(compute_uncorrupted_instruction(data))
     print(compute_uncorrupted_instruction_sequence(data))

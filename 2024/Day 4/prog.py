@@ -45,7 +45,7 @@ def count_x_mas(data, width, height) -> int:
                 acc += 1
     return acc
 
-with open('input.txt', 'r') as input:
+with open('./2024/Day 4/input.txt', 'r') as input:
     data = [line.strip() for line in input.readlines()]
     width, height = len(data), len(data[0])
     print(count_xmas(data, width, height))

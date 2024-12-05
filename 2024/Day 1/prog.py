@@ -20,7 +20,7 @@ def compute_similarity_score(left: list, right: list):
         similarity += s * l
     return similarity
 
-with open('input.txt', 'r') as input:
+with open('./2024/Day 1/input.txt', 'r') as input:
     left = []
     right = []
     for line in input.readlines():
